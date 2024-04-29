@@ -16,7 +16,11 @@ if (WIN32)
     set(PLATFORM "x86")
   endif()
 
-message(STATUS "config-PLATFORM = ${PLATFORM}")
+  message(STATUS "portfile-CMAKE_SIZEOF_VOID_P = ${CMAKE_SIZEOF_VOID_P}")
+  message(STATUS "portfile-CMAKE_CL_64 = ${CMAKE_CL_64}")
+  message(STATUS "portfile-CMAKE_SYSTEM_NAME = ${CMAKE_SYSTEM_NAME}")
+  message(STATUS "portfile-CMAKE_TOOLCHAIN_FILE = ${CMAKE_TOOLCHAIN_FILE}")
+  message(STATUS "config-PLATFORM = ${PLATFORM}")
 
   set(LIB_PATH "${CMAKE_CURRENT_LIST_DIR}/../../lib/Aspose.Cells.lib")
   set(ASPOSE_CELLS_DLL_PATH "${CMAKE_CURRENT_LIST_DIR}/../../bin/Aspose.Cells.dll")
