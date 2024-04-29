@@ -1,0 +1,37 @@
+if ("${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION}" LESS 2.5)
+  message(FATAL_ERROR "CMake >= 2.6.0 required")
+endif()
+cmake_policy(PUSH)
+cmake_policy(VERSION 2.6)
+
+add_library(Aspose.Cells SHARED IMPORTED)
+set_target_properties(Aspose.Cells PROPERTIES
+  INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_CURRENT_LIST_DIR}/../../include"
+)
+
+if (WIN32)
+  if (CMAKE_SIZEOF_VOID_P EQUAL "8")
+    set(PLATFORM "x86_64")
+  else()
+    set(PLATFORM "x86")
+  endif()
+
+message(STATUS "config-PLATFORM = ${PLATFORM}")
+
+  set(LIB_PATH "${CMAKE_CURRENT_LIST_DIR}/../../lib/Aspose.Cells.lib")
+  set(ASPOSE_CELLS_DLL_PATH "${CMAKE_CURRENT_LIST_DIR}/../../bin/Aspose.Cells.dll")
+  set_target_properties(Aspose.Cells PROPERTIES
+    IMPORTED_CONFIGURATIONS "DEBUG;RELEASE;RELWITHDEBINFO"
+    IMPORTED_LOCATION_DEBUG ${ASPOSE_CELLS_DLL_PATH}
+    IMPORTED_IMPLIB_DEBUG ${LIB_PATH}
+    IMPORTED_LOCATION_RELEASE ${ASPOSE_CELLS_DLL_PATH}
+    IMPORTED_IMPLIB_RELEASE ${LIB_PATH}
+    IMPORTED_LOCATION_RELWITHDEBINFO ${ASPOSE_CELLS_DLL_PATH}
+    IMPORTED_IMPLIB_RELWITHDEBINFO ${LIB_PATH}
+  )
+  set(LIB_PATH)
+endif()
+
+unset(PLATFORM)
+
+cmake_policy(POP)
