@@ -13,16 +13,14 @@ if (WIN32)
   endif()
 endif()
 
-message(STATUS "portfile-CMAKE_SIZEOF_VOID_P = ${CMAKE_SIZEOF_VOID_P}")
-message(STATUS "portfile-CMAKE_CL_64 = ${CMAKE_CL_64}")
-message(STATUS "portfile-CMAKE_SYSTEM_NAME = ${CMAKE_SYSTEM_NAME}")
-message(STATUS "portfile-CMAKE_TOOLCHAIN_FILE = ${CMAKE_TOOLCHAIN_FILE}")
+message(STATUS "cmakelist-CMAKE_SIZEOF_VOID_P = ${CMAKE_SIZEOF_VOID_P}")
+message(STATUS "cmakelist-CMAKE_CL_64 = ${CMAKE_CL_64}")
+message(STATUS "cmakelist-CMAKE_SYSTEM_NAME = ${CMAKE_SYSTEM_NAME}")
+message(STATUS "cmakelist-CMAKE_TOOLCHAIN_FILE = ${CMAKE_TOOLCHAIN_FILE}")
 
-message(STATUS "portfile-PLATFORM = ${PLATFORM}")
+message(STATUS "cmakelist-PLATFORM = ${PLATFORM}")
 
 
-install(FILES "${CMAKE_CURRENT_LIST_DIR}/lib/win_${PLATFORM}/Aspose.Cells.lib" DESTINATION ${CMAKE_INSTALL_LIBDIR})
-install(FILES "${CMAKE_CURRENT_LIST_DIR}/lib/win_${PLATFORM}/Aspose.Cells.dll" DESTINATION ${CMAKE_INSTALL_BINDIR})
 
 
 message(STATUS "cmakelist-CMAKE_CURRENT_SOURCE_DIR = ${CMAKE_CURRENT_SOURCE_DIR}")
